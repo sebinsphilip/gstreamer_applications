@@ -1,0 +1,26 @@
+BUILD:
+gcc gst_audiotest.c -I/usr/include/gstreamer-1.0/ -I/usr/include/glib-2.0/ -I/usr/lib/x86_64-linux-gnu/glib-2.0/include/ -I/usr/lib/x86_64-linux-gnu/gstreamer-1.0/include/ -lglib-2.0 -lgstreamer-1.0 -lpthread -lgobject-2.0 -DPHOENIX
+
+
+PIPELINE:
+gst-launch-1.0 -v filesrc location=Song01331_128kbps_44.1khz_2ch.ogg ! oggdemux ! queue ! vorbisdec ! audioresample ! audioconvert ! alsasink
+
+GST-DISCOVER:
+gst-discoverer-1.0 ~/GSTREAMER/gst_audio_test/Song01331_128kbps_44.1khz_2ch.ogg 
+Analyzing file:///home/GSTREAMER/gst_audio_test/Song01331_128kbps_44.1khz_2ch.ogg
+Done discovering file:///home/GSTREAMER/gst_audio_test/Song01331_128kbps_44.1khz_2ch.ogg
+
+Topology:
+  container: Ogg
+    audio: Vorbis
+
+Properties:
+  Duration: 0:04:02.560000000
+  Seekable: yes
+  Tags: 
+      encoder: Xiph.Org libVorbis I 20040920
+      encoder version: 0
+      audio codec: Vorbis
+      nominal bitrate: 128000
+      bitrate: 128000
+      container format: Ogg
